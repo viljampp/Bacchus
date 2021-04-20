@@ -12,7 +12,6 @@ namespace Auction.PFakeAPI
 {
     public class Startup
     {
-
         //TODO Demo
         public static DateTime FixedTime { get; set; }
 
