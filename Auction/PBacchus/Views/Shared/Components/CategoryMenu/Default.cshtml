@@ -1,0 +1,29 @@
+﻿@using Auction.Bacchus.Components
+<li class="dropdown">
+    <a asp-controller="Home"
+       asp-action="Index"
+       class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @{
+            foreach (var categories in CategoryMenu.Categories(Model)) {
+                if (categories.Products.Count <= 0) { continue; }
+                <li>
+                    <a asp-controller="Home" asp-action="Index" asp-route-category="@categories.Category">@categories.Category</a>
+                    <ul>
+                        @foreach (var product in categories.Products) {
+                            if (categories.Category == product.Category) {
+                                <li>
+                                    @product.Name
+                                </li>
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+        }
+        <li class="divider" />
+        <li>
+            <a asp-controller="Home" asp-action="Index" asp-route-category="">View all products</a>
+        </li>
+    </ul>
+</li>

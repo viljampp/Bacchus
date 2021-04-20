@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Auction.Facade.Bacchus.BidViewModel>
+
+@{
+    ViewData["Title"] = "Bids";
+}
+
+<h2>Product: @ViewBag.Product</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.Raw("Offer Made by User")
+        </th>
+        <th>
+            @Html.Raw("Auction End Date")
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidTo)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Results">Back to Results</a>
+</div>
